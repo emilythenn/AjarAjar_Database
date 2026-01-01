@@ -263,9 +263,20 @@ SET RECORD_STATUS = 'GRADUATED',
     RECORD_NOTES = 'Completed Primary School'
 WHERE STUDENT_ID = 'S008';
 
+-- ============================================================
+-- SECTION 4: DML (DELETE DATA)
+-- ============================================================
+
+-- Example Scenario: Inserting a wrong task by accident
+INSERT INTO LOGISTICS_TASK VALUES ('T999', 'Buy Mineral Water', 'For Science Workshop', DATE '2025-03-05', 'PENDING', 'E003', 'P002');
+
+-- Deleting the duplicate task
+DELETE FROM LOGISTICS_TASK 
+WHERE TASK_ID = 'T999';
+
 
 -- ============================================================
--- SECTION 4: DQL (QUERIES)
+-- SECTION 5: DQL (QUERIES)
 -- ============================================================
 
 -- FUNCTIONAL USER REQUIREMENTS
@@ -457,7 +468,7 @@ JOIN REPORT R ON P.PROGRAM_ID = R.PROGRAM_ID
 WHERE P.PROGRAM_STATUS = 'COMPLETED';
 
 /* ============================================================
-   SECTION 5: SYSTEM OPTIMIZATION (VIEWS)
+   SECTION 6: SYSTEM OPTIMIZATION (VIEWS)
    Creating Virtual Tables for the most complex Special Requirements
    to simplify future data retrieval.
    ============================================================ */
@@ -546,7 +557,7 @@ GROUP BY PROGRAM_VENUE
 ORDER BY EVENTS_HOSTED DESC;
 
 -- ============================================================
--- SECTION 6: VERIFYING VIEWS (Testing the Virtual Tables)
+-- SECTION 7: VERIFYING VIEWS (Testing the Virtual Tables)
 -- ============================================================
 
 -- Test 1: Retrieve High Priority List from View
