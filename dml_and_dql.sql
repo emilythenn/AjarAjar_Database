@@ -267,13 +267,13 @@ WHERE STUDENT_ID = 'S008';
 -- SECTION 4: DML (DELETE DATA)
 -- ============================================================
 
--- Example Scenario: Inserting a wrong task by accident
+-- Example Scenario: Inserting a duplicate task by accident
 INSERT INTO LOGISTICS_TASK VALUES ('T999', 'Buy Mineral Water', 'For Science Workshop', DATE '2025-03-05', 'PENDING', 'E003', 'P002');
+INSERT INTO LOGISTICS_TASK VALUES ('T990', 'Buy Mineral Water', 'For Science Workshop', DATE '2025-03-05', 'PENDING', 'E003', 'P002');
 
 -- Deleting the duplicate task
 DELETE FROM LOGISTICS_TASK 
-WHERE TASK_ID = 'T999';
-
+WHERE TASK_ID = 'T990';
 
 -- ============================================================
 -- SECTION 5: DQL (QUERIES)
