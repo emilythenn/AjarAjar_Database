@@ -156,18 +156,43 @@ INSERT INTO STUDENT_RECORD VALUES ('R008',DATE '2025-02-07','ACTIVE','Good progr
 INSERT INTO STUDENT_RECORD VALUES ('R009',DATE '2025-02-08','ACTIVE','Good progress','S009');
 INSERT INTO STUDENT_RECORD VALUES ('R010',DATE '2025-02-09','ACTIVE','Good progress','S010');
 
--- BUDGET (NEW DATA REQUIRED FOR FOREIGN KEYS)
+-- BUDGET 
 INSERT INTO BUDGET VALUES ('B001', 2025, 50000, 'Education Program Budget');
+INSERT INTO BUDGET VALUES ('B002', 2025, 15000, 'STEM Workshop Fund');
+INSERT INTO BUDGET VALUES ('B003', 2025, 8000, 'Field Trip Allocation');
+INSERT INTO BUDGET VALUES ('B004', 2025, 20000, 'Facilities & Maintenance');
+INSERT INTO BUDGET VALUES ('B005', 2025, 5000, 'Volunteer Appreciation Fund');
+INSERT INTO BUDGET VALUES ('B006', 2025, 12000, 'Technology & Software Upgrades');
+INSERT INTO BUDGET VALUES ('B007', 2026, 60000, '2026 Education Program Budget');
 
--- PROGRAM (NEW DATA REQUIRED FOR FOREIGN KEYS)
+-- PROGRAM 
 INSERT INTO PROGRAM VALUES ('P001', 'Primary Tuition', 'Education', 'Free tuition', DATE '2025-01-01', DATE '2025-12-31', 'Community Center', 'B001', 'E002');
+-- Insert Data after Alter Table
+INSERT INTO PROGRAM VALUES ('P002', 'Science Discovery Workshop', 'Workshop', 'Hands-on experiments for kids', DATE '2025-03-10', DATE '2025-03-12', 'Science Centre', 'B001', 'E003', 'COMPLETED');
+INSERT INTO PROGRAM VALUES ('P003', 'KL Heritage Walk', 'Trip', 'Historical tour of Dataran Merdeka', DATE '2025-04-15', DATE '2025-04-15', 'Dataran Merdeka', 'B001', 'E004', 'UPCOMING');
+INSERT INTO PROGRAM VALUES ('P004', 'Coding for Kids', 'Workshop', 'Introduction to Python programming', DATE '2025-06-01', DATE '2025-06-30', 'Computer Lab', 'B001', 'E005', 'UPCOMING');
+INSERT INTO PROGRAM VALUES ('P005', 'Secondary Math Tuition', 'Education', 'Tuition for Form 1-3 students', DATE '2025-01-01', DATE '2025-12-31', 'Community Center', 'B001', 'E002', 'ONGOING');
 
--- LOGISTICS_TASK (NEW DATA FOR COMPLETENESS)
+-- LOGISTICS_TASK 
 INSERT INTO LOGISTICS_TASK VALUES ('T001', 'Setup Venue', 'Chairs and tables', DATE '2025-01-01', 'COMPLETED', 'E004', 'P001');
+INSERT INTO LOGISTICS_TASK VALUES ('T002', 'Buy Chemicals', 'Vinegar and Baking Soda', DATE '2025-03-05', 'COMPLETED', 'E003', 'P002');
+INSERT INTO LOGISTICS_TASK VALUES ('T003', 'Order Lunch', 'Catering for 30 pax', DATE '2025-03-08', 'COMPLETED', 'E003', 'P002');
+INSERT INTO LOGISTICS_TASK VALUES ('T004', 'Book Bus', '44-seater bus rental', DATE '2025-04-01', 'PENDING', 'E004', 'P003');
+INSERT INTO LOGISTICS_TASK VALUES ('T005', 'Install Python', 'Lab computers setup', DATE '2025-05-25', 'IN PROGRESS', 'E005', 'P004');
+INSERT INTO LOGISTICS_TASK VALUES ('T006', 'Print Handouts', 'Coding exercise sheets', DATE '2025-05-28', 'PENDING', 'E005', 'P004');
+INSERT INTO LOGISTICS_TASK VALUES ('T007', 'Repair AC', 'Classroom 2 Aircond leaking', DATE '2025-02-15', 'COMPLETED', 'E002', 'P001');
 
--- EXPENSE (NEW DATA REQUIRED FOR BUDGET OVERRUN TEST)
+-- EXPENSE
 INSERT INTO EXPENSE VALUES ('EXP001', 1000, DATE '2025-02-01', 'Books', 'Materials', 'B001', 'P001');
 INSERT INTO EXPENSE VALUES ('EXP002', 55000, DATE '2025-02-02', 'Major Renovation', 'Capital', 'B001', 'P001');
+INSERT INTO EXPENSE VALUES ('EXP003', 450.00, DATE '2025-03-11', 'Science Kits', 'Materials', 'B002', 'P002');
+INSERT INTO EXPENSE VALUES ('EXP004', 300.00, DATE '2025-03-11', 'Student Lunch', 'Food', 'B002', 'P002');
+INSERT INTO EXPENSE VALUES ('EXP005', 1200.00, DATE '2025-04-15', 'Bus Charter Deposit', 'Transport', 'B003', 'P003');
+INSERT INTO EXPENSE VALUES ('EXP006', 400.00, DATE '2025-04-15', 'Museum Entrance Fees', 'Fees', 'B003', 'P003');
+INSERT INTO EXPENSE VALUES ('EXP007', 2500.00, DATE '2025-06-15', 'Laptop Rentals', 'Equipment', 'B006', 'P004');
+INSERT INTO EXPENSE VALUES ('EXP008', 150.00, DATE '2025-02-10', 'Whiteboard Markers', 'Stationery', 'B001', 'P001');
+
+COMMIT;
 
 
 -- DONOR
